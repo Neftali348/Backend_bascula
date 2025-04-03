@@ -19,9 +19,14 @@ public class Rol {
     // Constructores
     public Rol() {}
 
+
+
+
     public Rol(String nombre) {
         this.nombre = nombre;
     }
+
+
 
     public Integer getIdRol() {
         return idRol;
