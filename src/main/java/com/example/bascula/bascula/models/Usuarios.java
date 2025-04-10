@@ -1,16 +1,17 @@
 package com.example.bascula.bascula.models;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.userdetails.User;
 
 @Entity
-@Table(name="usuarios")
+@Table(name = "usuarios", schema = "bascula")
 public class Usuarios {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Suponiendo que id_usuario es autoincremental
     @Column(name = "id_usuario")
-    private Integer idUsuario;
+    private long idUsuario;
 
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
@@ -19,7 +20,7 @@ public class Usuarios {
     private String contrasenia;
 
     @ManyToOne
-    @JoinColumn(name = "id_rol", nullable = false) // Relación con Rol
+    @JoinColumn(name = "id_roles", nullable = false) // Relación con Rol
     private Rol rol;
 
     // Constructores
@@ -31,12 +32,14 @@ public class Usuarios {
         this.rol = rol;
     }
 
+
+
     // Getters y Setters
-    public Integer getIdUsuario() {
+    public long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
